@@ -1,6 +1,6 @@
-import crypto from "crypto";
+const crypto = require("crypto");
 
-export async function handler() {
+exports.handler = async function handler() {
   const state = crypto.randomBytes(16).toString("hex");
 
   const params = new URLSearchParams({
@@ -18,4 +18,4 @@ export async function handler() {
       "Set-Cookie": `discord_state=${state}; HttpOnly; Secure; Path=/; SameSite=Lax`
     }
   };
-}
+};
